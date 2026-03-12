@@ -298,9 +298,33 @@
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/919052040509?text=Hi!%20I'm%20interested%20in%20the%20Meta%20Ads%20Training." class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+    <a href="#" class="whatsapp-float" id="waFloatBtn">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
+
+    <!-- WhatsApp Lead Capture Modal -->
+    <div id="waModal" class="wa-modal">
+        <div class="wa-modal-content glass-panel">
+            <span class="close-wa-modal" id="closeWaModal">&times;</span>
+            <h3 class="mb-3" style="text-align: center;"><i class="fa-brands fa-whatsapp" style="color: var(--whatsapp);"></i> Start Chat</h3>
+            <p class="mb-3 text-muted" style="text-align: center; font-size: 0.95rem;">Please enter your WhatsApp number directly so we can serve you better.</p>
+            <form id="waForm">
+                <div class="form-group mb-3">
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-phone" style="color: var(--whatsapp);"></i>
+                        <input type="tel" id="waNumberInput" name="whatsapp_number" required placeholder="Enter WhatsApp number">
+                    </div>
+                </div>
+                <button type="submit" class="wa-btn-submit" id="waSubmitBtn">
+                    <span class="btn-text">Continue to WhatsApp</span>
+                    <div class="loader" style="display: none; border-top-color: white;"></div>
+                </button>
+                <div id="waFormMessage" style="display:none; text-align:center; margin-top:15px; color:var(--whatsapp); font-weight:500;">
+                    Redirecting...
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!-- Sticky Enroll CTA (Mobile mostly) -->
     <div class="sticky-footer-cta">
@@ -314,6 +338,6 @@
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/script.js?v=2"></script>
 </body>
 </html>

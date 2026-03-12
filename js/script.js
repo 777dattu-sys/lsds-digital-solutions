@@ -184,4 +184,86 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // WhatsApp Modal Logic
+    const waFloatBtn = document.getElementById('waFloatBtn');
+    const waModal = document.getElementById('waModal');
+    const closeWaModal = document.getElementById('closeWaModal');
+    const waForm = document.getElementById('waForm');
+    const waSubmitBtn = document.getElementById('waSubmitBtn');
+    const waBtnText = waSubmitBtn ? waSubmitBtn.querySelector('.btn-text') : null;
+    const waLoader = waSubmitBtn ? waSubmitBtn.querySelector('.loader') : null;
+    const waFormMessage = document.getElementById('waFormMessage');
+
+    // Replace with your Google Apps Script Web App URL
+    const waScriptURL = 'https://script.google.com/macros/s/AKfycbz-QL8hKA3E3hf2jG2PIjV7_hcgIbCefdQklMAplDcxatLwHlMdVi3Z4JiXV9sAhyq4/exec';
+
+    if (waFloatBtn && waModal) {
+        waFloatBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            waModal.classList.add('show');
+        });
+
+        closeWaModal.addEventListener('click', () => {
+            waModal.classList.remove('show');
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === waModal) {
+                waModal.classList.remove('show');
+            }
+        });
+
+        if (waForm) {
+            waForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                waBtnText.style.display = 'none';
+                waLoader.style.display = 'block';
+                waSubmitBtn.disabled = true;
+
+                const formData = new FormData(waForm);
+                const data = Object.fromEntries(formData.entries());
+                
+                // Redundant mappings to ensure it is picked up regardless of Google Apps Script configuration
+                data.name = "WhatsApp User"; 
+                data.Name = "WhatsApp User";
+                data["WhatsApp Number"] = data.whatsapp_number;
+                data.phone = data.whatsapp_number;
+                data.source = "WhatsApp";
+                data.Source = "WhatsApp";
+                
+                const urlEncodedData = new URLSearchParams(data).toString();
+
+                fetch(waScriptURL, { 
+                    method: 'POST', 
+                    body: urlEncodedData,
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    mode: 'no-cors'
+                })
+                .then(() => {
+                    waLoader.style.display = 'none';
+                    waFormMessage.style.display = 'block';
+                    
+                    setTimeout(() => {
+                        waModal.classList.remove('show');
+                        waBtnText.style.display = 'block';
+                        waSubmitBtn.disabled = false;
+                        waFormMessage.style.display = 'none';
+                        waForm.reset();
+                        // Use location.href instead of window.open to prevent popup blockers
+                        window.location.href = "https://wa.me/919052040509?text=Hi!%20I'm%20interested%20in%20the%20Meta%20Ads%20Training.";
+                    }, 800);
+                })
+                .catch(err => {
+                    console.error('Error!', err.message);
+                    window.location.href = "https://wa.me/919052040509?text=Hi!%20I'm%20interested%20in%20the%20Meta%20Ads%20Training.";
+                    waModal.classList.remove('show');
+                    waBtnText.style.display = 'block';
+                    waLoader.style.display = 'none';
+                    waSubmitBtn.disabled = false;
+                });
+            });
+        }
+    }
 });

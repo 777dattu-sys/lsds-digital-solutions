@@ -11,6 +11,8 @@ Follow these steps to connect your landing page form to Google Sheets automatica
    - C1: `phone`
    - D1: `city`
    - E1: `User Type`
+   - F1: `WhatsApp Number`
+   - G1: `Source`
 
 ## Step 2: Open Apps Script
 1. In your Google Sheet, click on **Extensions** > **Apps Script**.
@@ -40,17 +42,42 @@ function doPost (e) {
       if (header === 'Date') {
         return new Date().toLocaleString();
       } else {
-        // Find matching data from the submission
-        // HTML form names are: 'name', 'phone', 'city', 'userType'
-        const formFieldMap = {
-          'Name': 'name',
-          'Phone': 'phone',
-          'City': 'city',
-          'User Type': 'userType'
-        };
+        // Strip all spaces and make it completely lowercase to ignore misspellings/casing
+        const normalizedHeader = header.toString().toLowerCase().replace(/[^a-z0-9]/g, '');
         
-        const fieldName = formFieldMap[header];
-        return e.parameter[fieldName] || '';
+        let value = '';
+        
+        // Match the header carefully by checking which words it contains
+        if (normalizedHeader.includes('name')) {
+          value = e.parameter.name || e.parameter.Name;
+        } 
+        else if (normalizedHeader.includes('whatsapp') || normalizedHeader.includes('whatsup')) {
+          let num = e.parameter.whatsapp_number || e.parameter['WhatsApp Number'] || e.parameter.phone || '';
+          if (num && !num.toString().startsWith('+91')) {
+            value = '+91 ' + num;
+          } else {
+            value = num;
+          }
+        }
+        else if (normalizedHeader.includes('phone') || normalizedHeader.includes('mobile')) {
+          let num = e.parameter.phone || e.parameter.Phone || e.parameter.whatsapp_number || '';
+          if (num && !num.toString().startsWith('+91')) {
+            value = '+91 ' + num;
+          } else {
+            value = num;
+          }
+        }
+        else if (normalizedHeader.includes('city')) {
+          value = e.parameter.city || e.parameter.City;
+        }
+        else if (normalizedHeader.includes('usertype') || normalizedHeader.includes('who')) {
+          value = e.parameter.userType || e.parameter['User Type'];
+        }
+        else if (normalizedHeader.includes('source') || normalizedHeader.includes('from')) {
+          value = e.parameter.source || e.parameter.Source;
+        }
+        
+        return value || '';
       }
     });
 
@@ -85,6 +112,7 @@ function doPost (e) {
 2. Replace the simulated form submission code (Lines 29-41) with the actual fetch code and your script URL:
 
 ```javascript
+// Example JS Fetch (Add your WEB_APP_URL)
 const scriptURL = 'YOUR_COPIED_WEB_APP_URL_HERE';
 
 fetch(scriptURL, { method: 'POST', body: formData})

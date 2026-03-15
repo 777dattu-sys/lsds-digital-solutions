@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
@@ -17,34 +17,82 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Navbar -->
-    <header class="navbar" id="navbar">
-        <div class="container nav-content">
-            <a href="index.html" class="logo-link">
-                <div class="logo">
-                    <img src="images/logo.png.jpeg" alt="Lakshmi Shanwik Logo" id="nav-logo" onerror="this.src='https://via.placeholder.com/150x50?text=LSDS+Logo'">
-                    <span class="brand-name">Lakshmi Shanwik <br>Digital Solutions</span>
-                </div>
-            </a>
-            <a href="#enroll" class="btn btn-primary sticky-cta" id="nav-cta">Enroll Now</a>
-        </div>
-    </header>
+    <!-- Energy Particles Background -->
+    <div class="energy-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
 
+    <!-- Left Side Demo Banner -->
+    <a href="#demo" class="side-banner side-banner-left">
+        <div class="side-banner-wrapper">
+            <div class="side-scrolling-content-horizontal">
+                <span class="ticker-item">🔥 <strong>REGISTER FOR FREE DEMO NOW!</strong> 👉</span>
+                <span class="ticker-item">⭐ <strong>GUARANTEED 30-50 LEADS/WEEK</strong> 👈</span>
+                <span class="ticker-item">🔥 <strong>REGISTER FOR FREE DEMO NOW!</strong> 👉</span>
+                <span class="ticker-item">⭐ <strong>GUARANTEED 30-50 LEADS/WEEK</strong> 👈</span>
+                <!-- Duplicated for continuous seamless loop -->
+                <span class="ticker-item">🔥 <strong>REGISTER FOR FREE DEMO NOW!</strong> 👉</span>
+                <span class="ticker-item">⭐ <strong>GUARANTEED 30-50 LEADS/WEEK</strong> 👈</span>
+                <span class="ticker-item">🔥 <strong>REGISTER FOR FREE DEMO NOW!</strong> 👉</span>
+                <span class="ticker-item">⭐ <strong>GUARANTEED 30-50 LEADS/WEEK</strong> 👈</span>
+            </div>
+        </div>
+    </a>
+
+    <!-- Right Side Demo Banner -->
+    <a href="#demo" class="side-banner side-banner-right">
+        <div class="side-banner-wrapper">
+            <div class="side-scrolling-content-horizontal">
+                <span class="ticker-item">⭐ <strong>LIMITED SPOTS! JOIN LIVE DEMO</strong> 👈</span>
+                <span class="ticker-item">🚀 <strong>SCALE YOUR BUSINESS FAST!</strong> 👉</span>
+                <span class="ticker-item">⭐ <strong>LIMITED SPOTS! JOIN LIVE DEMO</strong> 👈</span>
+                <span class="ticker-item">🚀 <strong>SCALE YOUR BUSINESS FAST!</strong> 👉</span>
+                <!-- Duplicated for continuous seamless loop -->
+                <span class="ticker-item">⭐ <strong>LIMITED SPOTS! JOIN LIVE DEMO</strong> 👈</span>
+                <span class="ticker-item">🚀 <strong>SCALE YOUR BUSINESS FAST!</strong> 👉</span>
+                <span class="ticker-item">⭐ <strong>LIMITED SPOTS! JOIN LIVE DEMO</strong> 👈</span>
+                <span class="ticker-item">🚀 <strong>SCALE YOUR BUSINESS FAST!</strong> 👉</span>
+            </div>
+        </div>
+    </a>
+
+    <!-- Scrolling Information Banner -->
+    <div class="scrolling-banner">
+        <div class="ticker-wrapper">
+            <div class="scrolling-content">
+                <span class="ticker-item">🚨 <strong>FLASH NEWS:</strong> Local Real Estate Agency Generated 300+ Leads in 14 Days!</span>
+                <span class="ticker-item">🔥 <strong>SPECIAL OFFER:</strong> First 10 Sign-ups Get a FREE ₹2,000 Meta Ads Audit!</span>
+                <span class="ticker-item">📈 <strong>TRENDING:</strong> Stop Wasting Ad Spend! Learn Our Secret 3-Step Lead Funnel Today!</span>
+                <span class="ticker-item">⭐ <strong>SUCCESS:</strong> Gym Owner Drops Cost Per Lead to ₹30 Using Our Exact Templates!</span>
+                
+                <!-- Duplicated for continuous seamless loop -->
+                <span class="ticker-item">🚨 <strong>FLASH NEWS:</strong> Local Real Estate Agency Generated 300+ Leads in 14 Days!</span>
+                <span class="ticker-item">🔥 <strong>SPECIAL OFFER:</strong> First 10 Sign-ups Get a FREE ₹2,000 Meta Ads Audit!</span>
+                <span class="ticker-item">📈 <strong>TRENDING:</strong> Stop Wasting Ad Spend! Learn Our Secret 3-Step Lead Funnel Today!</span>
+                <span class="ticker-item">⭐ <strong>SUCCESS:</strong> Gym Owner Drops Cost Per Lead to ₹30 Using Our Exact Templates!</span>
+            </div>
+        </div>
+    </div>
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-grid">
             <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
-                <div class="badge">🔥 10 Days Live Training</div>
-                <h1 class="headline">Learn Meta Ads & Generate Clients in 10 Days</h1>
-                <p class="subheadline">Master Facebook and Instagram ads from scratch and learn how to generate leads for businesses.</p>
-                <ul class="key-points">
-                    <li><i class="fa-solid fa-circle-check text-accent"></i> Beginner to Advanced Training</li>
-                    <li><i class="fa-solid fa-circle-check text-accent"></i> Live Practical Campaign Setup</li>
-                    <li><i class="fa-solid fa-circle-check text-accent"></i> Learn Client Lead Generation</li>
-                </ul>
-                <div class="hero-actions">
-                    <a href="#enroll" class="btn btn-gradient">Enroll for Meta Ads Training</a>
-                    <a href="#details" class="btn btn-outline">Get Course Details</a>
+                <div class="hero-text-card">
+                    <h1 class="headline">Master Facebook & Instagram Ads <span class="highlight-text">Even If You Are A Complete Beginner</span></h1>
+                    <p class="subheadline">Learn a simple step-by-step Meta Ads system to generate leads, customers and sales without wasting money on ads.</p>
+                    <ul class="hero-features">
+                        <li><i class="fa-solid fa-check-circle"></i> Beginner Friendly</li>
+                        <li><i class="fa-solid fa-check-circle"></i> No Technical Skills Needed</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Perfect For Business Owners</li>
+                    </ul>
+                    <div class="hero-actions">
+                        <a href="#demo" class="btn btn-energy jazzy-element">Get Instant Demo Access</a>
+                        <a href="#enroll" class="btn btn-outline btn-subtle-pulse">Get Your FREE Ads Audit</a>
+                    </div>
                 </div>
             </div>
             <div class="hero-visual" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
@@ -59,49 +107,91 @@
         </div>
     </section>
 
-    <!-- Course Details Section -->
-    <section id="details" class="course-details section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Course Highlights</h2>
-            <div class="details-grid">
-                <div class="detail-card glass-panel">
-                    <div class="detail-icon"><i class="fa-solid fa-language"></i></div>
-                    <h3>100% తెలుగు లో</h3>
-                    <p>Learn comfortably in your native language (Telugu).</p>
-                </div>
-                <div class="detail-card glass-panel">
-                    <div class="detail-icon"><i class="fa-solid fa-calendar-days"></i></div>
-                    <h3>10 Days Course</h3>
-                    <p>Intensive, fast-tracked learning to master Meta Ads.</p>
-                </div>
-                <div class="detail-card glass-panel">
-                    <div class="detail-icon"><i class="fa-solid fa-desktop"></i></div>
-                    <h3>Online Training</h3>
-                    <p>100% Quality Practical online sessions.</p>
-                </div>
-                <div class="detail-card glass-panel highlight-card">
-                    <div class="detail-icon"><i class="fa-solid fa-tag"></i></div>
-                    <h3>RS 999/- Only</h3>
-                    <p>Includes lifetime access to recording videos.</p>
-                </div>
+    <!-- Divider Scrolling Banner -->
+    <div class="scrolling-banner">
+        <div class="ticker-wrapper">
+            <div class="scrolling-content">
+                <span class="ticker-item">🔥 <strong>LIMITED SPOTS:</strong> Fast Action Info Revealed in Demo!</span>
+                <span class="ticker-item">🚀 <a href="#demo" style="color: #ffeb3b; text-decoration: underline;"><strong>BOOK YOUR FREE LIVE DEMO NOW</strong></a></span>
+                <span class="ticker-item">⭐ <strong>PROVEN SYSTEM:</strong> Watch how we get 30-50 leads per week!</span>
+                <!-- Duplicated for continuous loop -->
+                <span class="ticker-item">🔥 <strong>LIMITED SPOTS:</strong> Fast Action Info Revealed in Demo!</span>
+                <span class="ticker-item">🚀 <a href="#demo" style="color: #ffeb3b; text-decoration: underline;"><strong>BOOK YOUR FREE LIVE DEMO NOW</strong></a></span>
+                <span class="ticker-item">⭐ <strong>PROVEN SYSTEM:</strong> Watch how we get 30-50 leads per week!</span>
             </div>
+        </div>
+    </div>
 
-            <div class="curriculum-box glass-panel mt-4" data-aos="zoom-in" data-aos-duration="800">
-                <h3 class="text-center mb-3">Tools & Curriculum Included</h3>
-                <div class="tags-container">
-                    <span class="tech-tag"><i class="fa-brands fa-facebook"></i> Facebook Ads</span>
-                    <span class="tech-tag"><i class="fa-brands fa-instagram"></i> Instagram Ads</span>
-                    <span class="tech-tag"><i class="fa-solid fa-briefcase"></i> Meta Business Suite</span>
-                    <span class="tech-tag"><i class="fa-brands fa-whatsapp"></i> Whatsapp Business</span>
-                    <span class="tech-tag"><i class="fa-solid fa-palette"></i> Canva Pro</span>
-                    <span class="tech-tag"><i class="fa-solid fa-robot"></i> Chatgpt Ai</span>
+    <!-- Client Logos Section -->
+    <section class="client-logos">
+        <div class="container text-center">
+            <p class="trusted-text">Trusted by 50+ Growing Businesses</p>
+            <div class="logo-grid">
+                <div class="client-logo jazzy-element">
+                    <i class="fa-solid fa-building"></i> 
+                    <span>Real Estate Co.</span>
+                </div>
+                <div class="client-logo jazzy-element">
+                    <i class="fa-solid fa-dumbbell"></i> 
+                    <span>Fitness Hub</span>
+                </div>
+                <div class="client-logo jazzy-element">
+                    <i class="fa-solid fa-house-chimney-medical"></i> 
+                    <span>Dental Clinic</span>
+                </div>
+                <div class="client-logo jazzy-element">
+                    <i class="fa-solid fa-utensils"></i> 
+                    <span>Urban Cafe</span>
+                </div>
+                <div class="client-logo jazzy-element">
+                    <i class="fa-solid fa-shop"></i> 
+                    <span>Retail Store</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Trainer Section -->
-    <section class="trainer section">
+    <!-- Problem Section -->
+    <section id="problem" class="problem-section section bg-darker">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Are You Running Ads But Still Facing...</h2>
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                    <h3>Wasted Ad Spend</h3>
+                    <p>Your budget disappears with little to no return, leaving you frustrated.</p>
+                </div>
+                <div class="audience-card">
+                    <i class="fa-solid fa-person-circle-question"></i>
+                    <h3>No Quality Leads</h3>
+                    <p>You get clicks and likes, but no actual customers for your business.</p>
+                </div>
+                <div class="audience-card">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <h3>Unpredictable Results</h3>
+                    <p>One day is good, the next is bad. There's no consistent flow of leads.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider Scrolling Banner -->
+    <div class="scrolling-banner">
+        <div class="ticker-wrapper">
+            <div class="scrolling-content">
+                <span class="ticker-item">🔥 <strong>LIMITED SPOTS:</strong> Fast Action Info Revealed in Demo!</span>
+                <span class="ticker-item">🚀 <a href="#demo" style="color: #ffeb3b; text-decoration: underline;"><strong>BOOK YOUR FREE LIVE DEMO NOW</strong></a></span>
+                <span class="ticker-item">⭐ <strong>PROVEN SYSTEM:</strong> Watch how we get 30-50 leads per week!</span>
+                <!-- Duplicated for continuous loop -->
+                <span class="ticker-item">🔥 <strong>LIMITED SPOTS:</strong> Fast Action Info Revealed in Demo!</span>
+                <span class="ticker-item">🚀 <a href="#demo" style="color: #ffeb3b; text-decoration: underline;"><strong>BOOK YOUR FREE LIVE DEMO NOW</strong></a></span>
+                <span class="ticker-item">⭐ <strong>PROVEN SYSTEM:</strong> Watch how we get 30-50 leads per week!</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results / Proof Section -->
+    <section class="trainer section" id="results">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Meet Your Trainer</h2>
             <div class="trainer-card glass-panel" data-aos="fade-up" data-aos-delay="100">
@@ -113,13 +203,13 @@
                     <h4 class="text-accent mb-3" style="font-size: 1.1rem; font-weight: 500;">Meta Ads Specialist</h4>
                     <p class="trainer-desc">A certified Meta Ads specialist helping businesses generate high-quality leads using advanced Facebook and Instagram advertising strategies.</p>
                     <div class="stats-grid">
-                        <div class="stat-item">
-                            <span class="stat-number count-up" data-target="5">0</span><span class="stat-number">+</span>
-                            <span class="stat-label">Years Experience</span>
+                         <div class="stat-item">
+                            <span class="stat-number count-up" data-target="1200">0</span><span class="stat-number">+</span>
+                            <span class="stat-label">Leads Generated</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number count-up" data-target="1000">0</span><span class="stat-number">+</span>
-                            <span class="stat-label">Students Trained</span>
+                            <span class="stat-number">₹<span class="count-up" data-target="30">0</span></span>
+                            <span class="stat-label">Avg. Cost Per Lead</span>
                         </div>
                     </div>
                 </div>
@@ -127,8 +217,23 @@
         </div>
     </section>
 
-    <!-- What You Will Learn Section -->
-    <section class="learning section bg-darker">
+    <!-- Divider Scrolling Banner -->
+    <div class="scrolling-banner">
+        <div class="ticker-wrapper">
+            <div class="scrolling-content">
+                <span class="ticker-item">🔥 <strong>LIMITED SPOTS:</strong> Fast Action Info Revealed in Demo!</span>
+                <span class="ticker-item">🚀 <a href="#demo" style="color: #ffeb3b; text-decoration: underline;"><strong>BOOK YOUR FREE LIVE DEMO NOW</strong></a></span>
+                <span class="ticker-item">⭐ <strong>PROVEN SYSTEM:</strong> Watch how we get 30-50 leads per week!</span>
+                <!-- Duplicated for continuous loop -->
+                <span class="ticker-item">🔥 <strong>LIMITED SPOTS:</strong> Fast Action Info Revealed in Demo!</span>
+                <span class="ticker-item">🚀 <a href="#demo" style="color: #ffeb3b; text-decoration: underline;"><strong>BOOK YOUR FREE LIVE DEMO NOW</strong></a></span>
+                <span class="ticker-item">⭐ <strong>PROVEN SYSTEM:</strong> Watch how we get 30-50 leads per week!</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Solution Section -->
+    <section class="learning section bg-darker" id="solution">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">What You Will Learn</h2>
             <div class="courses-grid">
@@ -166,68 +271,110 @@
         </div>
     </section>
 
-    <!-- Who This Training Is For -->
-    <section class="target-audience section">
+    <!-- Divider Scrolling Banner -->
+    <div class="scrolling-banner">
+        <div class="ticker-wrapper">
+            <div class="scrolling-content">
+                <span class="ticker-item">🔥 <strong>LIMITED SPOTS:</strong> Fast Action Info Revealed in Demo!</span>
+                <span class="ticker-item">🚀 <a href="#demo" style="color: #ffeb3b; text-decoration: underline;"><strong>BOOK YOUR FREE LIVE DEMO NOW</strong></a></span>
+                <span class="ticker-item">⭐ <strong>PROVEN SYSTEM:</strong> Watch how we get 30-50 leads per week!</span>
+                <!-- Duplicated for continuous loop -->
+                <span class="ticker-item">🔥 <strong>LIMITED SPOTS:</strong> Fast Action Info Revealed in Demo!</span>
+                <span class="ticker-item">🚀 <a href="#demo" style="color: #ffeb3b; text-decoration: underline;"><strong>BOOK YOUR FREE LIVE DEMO NOW</strong></a></span>
+                <span class="ticker-item">⭐ <strong>PROVEN SYSTEM:</strong> Watch how we get 30-50 leads per week!</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Process Section -->
+    <section id="process" class="course-details section">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Who This Training Is For</h2>
-            <div class="audience-grid">
-                <div class="audience-card">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <h3>Students</h3>
-                    <p>Who want powerful digital marketing skills for a high-paying career.</p>
+            <h2 class="section-title" data-aos="fade-up">How It Works: Our 3-Step Process</h2>
+            <div class="details-grid">
+                <div class="detail-card glass-panel">
+                    <div class="detail-icon">1</div>
+                    <h3>Book a Free Call</h3>
+                    <p>We'll discuss your business goals and audit your existing ad strategy.</p>
                 </div>
-                <div class="audience-card">
-                    <i class="fa-solid fa-laptop-code"></i>
-                    <h3>Freelancers</h3>
-                    <p>Who want to learn how to acquire clients and run successful campaigns.</p>
+                <div class="detail-card glass-panel">
+                    <div class="detail-icon">2</div>
+                    <h3>Campaign Launch</h3>
+                    <p>We design, build, and launch your custom lead generation funnel.</p>
                 </div>
-                <div class="audience-card">
-                    <i class="fa-solid fa-building"></i>
-                    <h3>Business Owners</h3>
-                    <p>Who want to generate consistent, qualified leads for their own business.</p>
-                </div>
-                <div class="audience-card">
-                    <i class="fa-solid fa-magnifying-glass-chart"></i>
-                    <h3>Job Seekers</h3>
-                    <p>In digital marketing looking to upskill and stand out in the job market.</p>
+                <div class="detail-card glass-panel">
+                    <div class="detail-icon">3</div>
+                    <h3>Scale & Optimize</h3>
+                    <p>We monitor results and scale the winning ads for maximum ROI.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Results / Benefits Section -->
-    <section class="benefits section bg-darker">
-        <div class="container">
-            <div class="benefits-wrapper glass-panel" data-aos="zoom-in-up" data-aos-duration="800">
-                <h2 class="section-title text-center" style="margin-bottom: 30px;">What You Can Achieve After Training</h2>
-                <ul class="benefits-list">
-                    <li>
-                        <div class="benefit-icon"><i class="fa-solid fa-bullseye"></i></div>
-                        <div class="benefit-text">Run profitable ad campaigns from day one</div>
-                    </li>
-                    <li>
-                        <div class="benefit-icon"><i class="fa-solid fa-bolt"></i></div>
-                        <div class="benefit-text">Generate massive leads for businesses</div>
-                    </li>
-                    <li>
-                        <div class="benefit-icon"><i class="fa-solid fa-globe"></i></div>
-                        <div class="benefit-text">Start your freelance digital marketing journey</div>
-                    </li>
-                    <li>
-                        <div class="benefit-icon"><i class="fa-solid fa-star"></i></div>
-                        <div class="benefit-text">Work as a highly-paid Meta Ads specialist</div>
-                    </li>
-                </ul>
+    <!-- Divider Scrolling Banner -->
+    <div class="scrolling-banner">
+        <div class="ticker-wrapper">
+            <div class="scrolling-content">
+                <span class="ticker-item">🔥 <strong>LIMITED SPOTS:</strong> Fast Action Info Revealed in Demo!</span>
+                <span class="ticker-item">🚀 <a href="#demo" style="color: #ffeb3b; text-decoration: underline;"><strong>BOOK YOUR FREE LIVE DEMO NOW</strong></a></span>
+                <span class="ticker-item">⭐ <strong>PROVEN SYSTEM:</strong> Watch how we get 30-50 leads per week!</span>
+                <!-- Duplicated for continuous loop -->
+                <span class="ticker-item">🔥 <strong>LIMITED SPOTS:</strong> Fast Action Info Revealed in Demo!</span>
+                <span class="ticker-item">🚀 <a href="#demo" style="color: #ffeb3b; text-decoration: underline;"><strong>BOOK YOUR FREE LIVE DEMO NOW</strong></a></span>
+                <span class="ticker-item">⭐ <strong>PROVEN SYSTEM:</strong> Watch how we get 30-50 leads per week!</span>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Urgency Section -->
-    <section class="urgency">
+    <!-- Offer Section -->
+    <section class="urgency" id="offer">
         <div class="container urgency-content text-center">
-            <h2>Limited Seats Available!</h2>
-            <p>Only a few seats available for the next training batch. Don't miss out on this opportunity.</p>
-            <a href="#enroll" class="btn btn-warning mt-4 pulse-btn">Reserve Your Seat</a>
+            <h2>Get a FREE Meta Ads Audit (Worth ₹2,000)</h2>
+            <p>For a limited time, we're offering a no-obligation audit of your Meta Ads account. We will show you exactly what you can improve to get better results.</p>
+            <a href="#enroll" class="btn btn-warning mt-4 pulse-btn">Claim Your Free Audit Now</a>
+        </div>
+    </section>
+
+    <!-- Demo Registration Section -->
+    <section class="demo-section" id="demo">
+        <div class="container demo-content">
+            <div class="instant-access">
+                <i class="fa-solid fa-zap"></i>
+                <span>INSTANT ACCESS</span>
+            </div>
+            <h2>Register for FREE Live Demo</h2>
+            <p>Join our exclusive live demo session and see how we generate 30-50 leads per week for our clients</p>
+            
+            <div class="countdown-wrapper">
+                <p class="countdown-title">Next Session Starts In:</p>
+                <div class="countdown-timer" id="demoCountdown">
+                    <div class="time-box"><span id="days">00</span><small>Days</small></div>
+                    <div class="time-box"><span id="hours">00</span><small>Hours</small></div>
+                    <div class="time-box"><span id="minutes">00</span><small>Minutes</small></div>
+                    <div class="time-box"><span id="seconds">00</span><small>Secs</small></div>
+                </div>
+            </div>
+
+            <form class="demo-form" id="demoForm">
+                <div class="form-group">
+                    <input type="text" id="demoName" name="demoName" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="demoEmail" name="demoEmail" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="demoPhone" name="demoPhone" placeholder="WhatsApp Number" required>
+                </div>
+                <div style="position: relative;">
+                    <button type="submit" class="btn btn-energy w-100">
+                        <span>Get Instant Demo Access</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <div class="ai-avatar-pointer demo-pointer">
+                        <i class="fa-solid fa-robot ai-icon"></i>
+                        <i class="fa-solid fa-hand-pointer click-icon"></i>
+                    </div>
+                </div>
+            </form>
         </div>
     </section>
 
@@ -235,8 +382,8 @@
     <section id="enroll" class="lead-capture section">
         <div class="container form-container">
             <div class="form-wrapper glass-panel shadow-glow" data-aos="flip-up" data-aos-duration="1000">
-                <h2 class="form-title">Secure Your Spot</h2>
-                <p class="form-subtitle">Fill in your details below to get full course details and reserve your seat.</p>
+                <h2 class="form-title">Get Your Free Consultation</h2>
+                <p class="form-subtitle">Fill the form below to claim your free audit. We'll get in touch with you shortly.</p>
                 
                 <form id="enrollmentForm" class="meta-form">
                     <div class="form-group">
@@ -256,39 +403,68 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="city">City *</label>
+                        <label for="business">Business Name *</label>
                         <div class="input-wrapper">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <input type="text" id="city" name="city" required placeholder="Your city">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="userType">Who are you? *</label>
-                        <div class="input-wrapper select-wrapper">
-                            <i class="fa-solid fa-id-badge"></i>
-                            <select id="userType" name="userType" required>
-                                <option value="" disabled selected>Select an option</option>
-                                <option value="Student">Student</option>
-                                <option value="Business Owner">Business Owner</option>
-                                <option value="Freelancer">Freelancer</option>
-                                <option value="Other">Other</option>
-                            </select>
+                            <i class="fa-solid fa-briefcase"></i>
+                            <input type="text" id="business" name="business" required placeholder="Enter your business name">
                         </div>
                     </div>
                     
                     <button type="submit" class="btn btn-submit w-100" id="submitBtn">
-                        <span class="btn-text">Get Training Details</span>
+                        <span class="btn-text">Get Free Audit</span>
                         <div class="loader" style="display: none;"></div>
                     </button>
                     
                     <div id="formMessage" class="form-message" style="display: none;">
-                        <i class="fa-solid fa-circle-check"></i> Hello <span id="userNameDisplay">there</span>! Thanks for your interest. Redirecting you to our WhatsApp community...
+                        <i class="fa-solid fa-circle-check"></i> Thank you, <span id="userNameDisplay">there</span>! We've received your request. Redirecting you to WhatsApp to connect...
                     </div>
                 </form>
             </div>
         </div>
     </section>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="whatsapp-float-container">
+        <div class="whatsapp-tooltip">
+            Click for Live Demo Access!
+            <i class="fa-solid fa-arrow-down"></i>
+        </div>
+        <a href="https://chat.whatsapp.com/JXhXj6n6nQa6kiMvJtf6Cg" target="_blank" class="whatsapp-float">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <div class="ai-avatar-pointer wa-pointer">
+            <i class="fa-solid fa-robot ai-icon"></i>
+            <i class="fa-solid fa-hand-pointer click-icon"></i>
+        </div>
+    </div>
+
+    <!-- Sticky Action Bar (Ensures they ALWAYS see the CTA) -->
+    <div class="sticky-action-bar">
+        <a href="#demo" class="action-btn demo-action">
+            <i class="fa-solid fa-laptop"></i> Book Free Demo
+        </a>
+        <a href="https://chat.whatsapp.com/JXhXj6n6nQa6kiMvJtf6Cg" target="_blank" class="action-btn wa-action">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+        </a>
+    </div>
+
+    <!-- Exit Intent Modal (Triggers when they try to leave) -->
+    <div class="lead-modal" id="leadModal">
+        <div class="lead-modal-content glass-panel shadow-glow">
+            <span class="close-modal" id="closeLeadModal">&times;</span>
+            <div style="font-size: 3.5rem; color: #ffeb3b; margin-bottom: 10px; animation: jazzyBounce 2s infinite;"><i class="fa-solid fa-gift"></i></div>
+            <h2 class="headline" style="font-size: 2.2rem; margin-bottom: 1rem;">Wait! Don't Leave Empty Handed</h2>
+            <p class="subheadline" style="margin: 0 auto 2rem; max-width: 100%; color: var(--text-main);">Before you go, get our proven Meta Ads system and start generating 30-50 high-quality leads per week. Choose an option below!</p>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <a href="#demo" class="btn btn-energy w-100" id="modalDemoBtn" style="padding: 1.2rem; font-size: 1.2rem; border-radius: 12px;">
+                    <i class="fa-solid fa-bolt" style="margin-right: 10px;"></i> Register For Free Demo
+                </a>
+                <a href="https://chat.whatsapp.com/JXhXj6n6nQa6kiMvJtf6Cg" target="_blank" class="btn w-100" style="padding: 1.2rem; font-size: 1.2rem; background: var(--whatsapp); color: white; border-radius: 12px; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);">
+                    <i class="fa-brands fa-whatsapp" style="margin-right: 10px; font-size: 1.4rem;"></i> Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -296,45 +472,6 @@
             <p>&copy; 2026 Lakshmi Shanwik Digital Solutions. All Rights Reserved.</p>
         </div>
     </footer>
-
-    <!-- Floating WhatsApp Button -->
-    <a href="#" class="whatsapp-float" id="waFloatBtn">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-    <!-- WhatsApp Lead Capture Modal -->
-    <div id="waModal" class="wa-modal">
-        <div class="wa-modal-content glass-panel">
-            <span class="close-wa-modal" id="closeWaModal">&times;</span>
-            <h3 class="mb-3" style="text-align: center;"><i class="fa-brands fa-whatsapp" style="color: var(--whatsapp);"></i> Start Chat</h3>
-            <p class="mb-3 text-muted" style="text-align: center; font-size: 0.95rem;">Please enter your WhatsApp number directly so we can serve you better.</p>
-            <form id="waForm">
-                <div class="form-group mb-3">
-                    <div class="input-wrapper">
-                        <i class="fa-solid fa-phone" style="color: var(--whatsapp);"></i>
-                        <input type="tel" id="waNumberInput" name="whatsapp_number" required placeholder="Enter WhatsApp number">
-                    </div>
-                </div>
-                <button type="submit" class="wa-btn-submit" id="waSubmitBtn">
-                    <span class="btn-text">Continue to WhatsApp</span>
-                    <div class="loader" style="display: none; border-top-color: white;"></div>
-                </button>
-                <div id="waFormMessage" style="display:none; text-align:center; margin-top:15px; color:var(--whatsapp); font-weight:500;">
-                    Redirecting...
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Sticky Enroll CTA (Mobile mostly) -->
-    <div class="sticky-footer-cta">
-        <a href="#enroll" class="btn btn-gradient btn-full">Enroll Now</a>
-    </div>
-
-    <!-- Scroll to Top Button -->
-    <a href="#" class="scroll-top" id="scrollTop">
-        <i class="fa-solid fa-arrow-up"></i>
-    </a>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

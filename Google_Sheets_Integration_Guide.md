@@ -9,10 +9,9 @@ Follow these steps to connect your landing page form to Google Sheets automatica
    - A1: `Date`
    - B1: `name`
    - C1: `phone`
-   - D1: `city`
-   - E1: `User Type`
-   - F1: `WhatsApp Number`
-   - G1: `Source`
+   - D1: `business`
+   - E1: `WhatsApp Number`
+   - F1: `Source`
 
 ## Step 2: Open Apps Script
 1. In your Google Sheet, click on **Extensions** > **Apps Script**.
@@ -67,14 +66,11 @@ function doPost (e) {
             value = num;
           }
         }
-        else if (normalizedHeader.includes('city')) {
-          value = e.parameter.city || e.parameter.City;
-        }
-        else if (normalizedHeader.includes('usertype') || normalizedHeader.includes('who')) {
-          value = e.parameter.userType || e.parameter['User Type'];
-        }
         else if (normalizedHeader.includes('source') || normalizedHeader.includes('from')) {
           value = e.parameter.source || e.parameter.Source;
+        }
+        else if (normalizedHeader.includes('business')) {
+          value = e.parameter.business || e.parameter.Business;
         }
         
         return value || '';

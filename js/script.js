@@ -7,30 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
         easing: 'ease-in-out', // default easing for AOS animations
     });
 
-    // Transparent to solid navbar on scroll & Scroll to Top visibility
-    const navbar = document.getElementById('navbar');
-    const scrollTopBtn = document.getElementById('scrollTop');
-    
-    window.addEventListener('scroll', () => {
-        // Navbar
-        if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(6, 11, 25, 0.95)';
-            navbar.style.boxShadow = '0 5px 20px rgba(0,0,0,0.5)';
-        } else {
-            navbar.style.background = 'rgba(6, 11, 25, 0.8)';
-            navbar.style.boxShadow = 'none';
-        }
-
-        // Scroll to Top Button
-        if (scrollTopBtn) {
-            if (window.scrollY > 500) {
-                scrollTopBtn.classList.add('show');
-            } else {
-                scrollTopBtn.classList.remove('show');
-            }
-        }
-    });
-
     // Count Up Animation
     const counters = document.querySelectorAll('.count-up');
     const speed = 200; // The lower the slower
@@ -40,7 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const updateCount = () => {
                 const target = +counter.getAttribute('data-target');
                 const count = +counter.innerText;
-                const inc = target / speed;
+                
+                // If target is a large number, increment faster
+                const inc = target > 1000 ? target / (speed / 2) : target / speed;
 
                 if (count < target) {
                     counter.innerText = Math.ceil(count + inc);
@@ -85,17 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Start typing after a small delay
         setTimeout(typeWriter, 500);
-    }
-
-    // Scroll to top click event
-    if (scrollTopBtn) {
-        scrollTopBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
     }
 
     // Form submission simulation
@@ -152,9 +119,9 @@ document.addEventListener('DOMContentLoaded', () => {
             enrollForm.style.display = 'none';
             formMessage.style.display = 'block';
             
-            // Redirect to WhatsApp Community instantly after briefly showing message
+            // Redirect to Thank You page instantly after briefly showing message
             setTimeout(() => {
-                window.location.href = "https://chat.whatsapp.com/JXhXj6n6nQa6kiMvJtf6Cg";
+                window.location.href = "thankyou.html";
             }, 1000);
             
             // Reset the form values
@@ -171,99 +138,251 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Enhanced Interactive Features
+    
+    // Mouse movement parallax effect for hero
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        hero.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach((particle, index) => {
+                const speed = (index + 1) * 0.5;
+                const x = (mouseX - 0.5) * speed;
+                const y = (mouseY - 0.5) * speed;
+                particle.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+    }
+
+    // Add click effects to buttons
+    document.querySelectorAll('.btn, .whatsapp-float').forEach(button => {
+        button.addEventListener('click', function(e) {
+            // Create ripple effect
+            const ripple = document.createElement('span');
+            ripple.style.position = 'absolute';
+            ripple.style.borderRadius = '50%';
+            ripple.style.background = 'rgba(255,255,255,0.6)';
+            ripple.style.transform = 'scale(0)';
+            ripple.style.animation = 'ripple 0.6s linear';
+            
+            const rect = this.getBoundingClientRect();
+            ripple.style.left = (e.clientX - rect.left - 10) + 'px';
+            ripple.style.top = (e.clientY - rect.top - 10) + 'px';
+            ripple.style.width = '20px';
+            ripple.style.height = '20px';
+            ripple.style.pointerEvents = 'none';
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+
+    // Add CSS for ripple animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        .btn, .whatsapp-float {
+            position: relative;
+            overflow: hidden;
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Enhanced scrolling effects
+    let lastScrollY = window.scrollY;
+    const navbar = document.querySelector('.hero'); // Using hero as reference
+    
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+        
+        // Add scroll direction class
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            document.body.classList.add('scrolling-down');
+        } else {
+            document.body.classList.remove('scrolling-down');
+        }
+        
+        lastScrollY = currentScrollY;
+        
+        // Dynamic particle movement based on scroll
+        const particles = document.querySelectorAll('.particle');
+        const scrollPercent = currentScrollY / (document.body.scrollHeight - window.innerHeight);
+        
+        particles.forEach((particle, index) => {
+            const offset = scrollPercent * 100 * (index + 1) * 0.1;
+            particle.style.transform += ` translateY(${offset}px)`;
+        });
+    });
+
+    // Typing effect enhancement
+    const enhanceTyping = () => {
+        const elements = document.querySelectorAll('.jazzy-element');
+        elements.forEach((element, index) => {
+            element.style.animationDelay = `${index * 0.2}s`;
+        });
+    };
+    
+    enhanceTyping();
+
+    // Demo Form submission
+    const demoForm = document.getElementById('demoForm');
+    if (demoForm) {
+        demoForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const demoData = new FormData(demoForm);
+            const data = Object.fromEntries(demoData.entries());
+            data.date = new Date().toLocaleString();
+            data.type = 'demo_registration';
+            
+            // Map demo fields to standard fields expected by Google Apps Script
+            data.name = data.demoName;
+            data.phone = data.demoPhone;
+            data.source = "Demo Registration";
+            
+            console.log('Demo Registration Data:', data);
+
+            // Show loading state
+            const submitBtn = demoForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
+            submitBtn.disabled = true;
+
+            // Submit to Google Sheets
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbz-QL8hKA3E3hf2jG2PIjV7_hcgIbCefdQklMAplDcxatLwHlMdVi3Z4JiXV9sAhyq4/exec';
+            const urlEncodedData = new URLSearchParams(data).toString();
+
+            fetch(scriptURL, { 
+                method: 'POST', 
+                body: urlEncodedData,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                mode: 'no-cors'
+            })
+            .then(() => {
+                // Success
+                submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Demo Access Granted!';
+                submitBtn.style.background = 'linear-gradient(45deg, #00d4ff, #090979)';
+                
+                // Reset form after delay
+                setTimeout(() => {
+                    demoForm.reset();
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 3000);
+                
+                // Format the message for WhatsApp
+                const waNumber = '919052040509';
+                const waMessage = `*New Demo Registration!*%0A%0A*Name:* ${data.demoName}%0A*Email:* ${data.demoEmail}%0A*Phone:* ${data.demoPhone}`;
+                const waUrl = `https://wa.me/${waNumber}?text=${waMessage}`;
+                
+                // Redirect to WhatsApp
+                window.location.href = waUrl;
+            })
+            .catch(error => {
+                console.error('Demo registration error:', error);
+                submitBtn.innerHTML = '<i class="fa-solid fa-exclamation-triangle"></i> Try Again';
+                submitBtn.disabled = false;
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                }, 2000);
+            });
+        });
+    }
+
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                const offset = 80; // Adjust this value to increase/decrease the gap above section titles
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.scrollY - offset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
                 });
             }
         });
     });
 
-    // WhatsApp Modal Logic
-    const waFloatBtn = document.getElementById('waFloatBtn');
-    const waModal = document.getElementById('waModal');
-    const closeWaModal = document.getElementById('closeWaModal');
-    const waForm = document.getElementById('waForm');
-    const waSubmitBtn = document.getElementById('waSubmitBtn');
-    const waBtnText = waSubmitBtn ? waSubmitBtn.querySelector('.btn-text') : null;
-    const waLoader = waSubmitBtn ? waSubmitBtn.querySelector('.loader') : null;
-    const waFormMessage = document.getElementById('waFormMessage');
+    // Evergreen Countdown Timer for Demo
+    const initCountdown = () => {
+        const daysEl = document.getElementById("days");
+        const hoursEl = document.getElementById("hours");
+        const minsEl = document.getElementById("minutes");
+        const secsEl = document.getElementById("seconds");
+        
+        if (!daysEl || !hoursEl || !minsEl || !secsEl) return;
 
-    // Replace with your Google Apps Script Web App URL
-    const waScriptURL = 'https://script.google.com/macros/s/AKfycbz-QL8hKA3E3hf2jG2PIjV7_hcgIbCefdQklMAplDcxatLwHlMdVi3Z4JiXV9sAhyq4/exec';
+        // Set countdown to 1 day, 5 hours, 30 mins from first visit
+        let countDownDate = localStorage.getItem('demoCountdownDate');
+        if (!countDownDate || countDownDate < new Date().getTime()) {
+            countDownDate = new Date().getTime() + (1 * 24 * 60 * 60 * 1000) + (5 * 60 * 60 * 1000) + (30 * 60 * 1000);
+            localStorage.setItem('demoCountdownDate', countDownDate);
+        }
 
-    if (waFloatBtn && waModal) {
-        waFloatBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            waModal.classList.add('show');
-        });
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
 
-        closeWaModal.addEventListener('click', () => {
-            waModal.classList.remove('show');
-        });
+            if (distance > 0) {
+                daysEl.innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                hoursEl.innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                minsEl.innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                secsEl.innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+            }
+        }, 1000);
+    };
+    initCountdown();
 
-        window.addEventListener('click', (e) => {
-            if (e.target === waModal) {
-                waModal.classList.remove('show');
+    // Ultimate Lead Capture - Exit Intent & Inactivity Modal
+    const leadModal = document.getElementById('leadModal');
+    const closeLeadModal = document.getElementById('closeLeadModal');
+    const modalDemoBtn = document.getElementById('modalDemoBtn');
+    let leadModalShown = false;
+
+    if (leadModal) {
+        // Trigger 1: Mouse leaves the viewport (Desktop Exit Intent)
+        document.addEventListener('mouseleave', (e) => {
+            if (e.clientY <= 0 && !leadModalShown) {
+                leadModal.classList.add('show');
+                leadModalShown = true;
             }
         });
 
-        if (waForm) {
-            waForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                
-                waBtnText.style.display = 'none';
-                waLoader.style.display = 'block';
-                waSubmitBtn.disabled = true;
+        // Trigger 2: Time delay (Shows after 45 seconds to force engagement)
+        setTimeout(() => {
+            if (!leadModalShown) {
+                leadModal.classList.add('show');
+                leadModalShown = true;
+            }
+        }, 45000);
 
-                const formData = new FormData(waForm);
-                const data = Object.fromEntries(formData.entries());
-                
-                // Redundant mappings to ensure it is picked up regardless of Google Apps Script configuration
-                data.name = "WhatsApp User"; 
-                data.Name = "WhatsApp User";
-                data["WhatsApp Number"] = data.whatsapp_number;
-                data.phone = data.whatsapp_number;
-                data.source = "WhatsApp";
-                data.Source = "WhatsApp";
-                
-                const urlEncodedData = new URLSearchParams(data).toString();
-
-                fetch(waScriptURL, { 
-                    method: 'POST', 
-                    body: urlEncodedData,
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    mode: 'no-cors'
-                })
-                .then(() => {
-                    waLoader.style.display = 'none';
-                    waFormMessage.style.display = 'block';
-                    
-                    setTimeout(() => {
-                        waModal.classList.remove('show');
-                        waBtnText.style.display = 'block';
-                        waSubmitBtn.disabled = false;
-                        waFormMessage.style.display = 'none';
-                        waForm.reset();
-                        // Use location.href instead of window.open to prevent popup blockers
-                        window.location.href = "https://wa.me/919052040509?text=Hi!%20I'm%20interested%20in%20the%20Meta%20Ads%20Training.";
-                    }, 800);
-                })
-                .catch(err => {
-                    console.error('Error!', err.message);
-                    window.location.href = "https://wa.me/919052040509?text=Hi!%20I'm%20interested%20in%20the%20Meta%20Ads%20Training.";
-                    waModal.classList.remove('show');
-                    waBtnText.style.display = 'block';
-                    waLoader.style.display = 'none';
-                    waSubmitBtn.disabled = false;
-                });
-            });
+        // Close logic
+        if (closeLeadModal) {
+            closeLeadModal.addEventListener('click', () => leadModal.classList.remove('show'));
         }
+        if (modalDemoBtn) {
+            modalDemoBtn.addEventListener('click', () => leadModal.classList.remove('show'));
+        }
+        window.addEventListener('click', (e) => {
+            if (e.target === leadModal) leadModal.classList.remove('show');
+        });
     }
 });
